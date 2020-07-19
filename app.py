@@ -1,12 +1,15 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 from forms import SignupForm, LoginForm, OrderForm
 from logger import logger
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 app.secret_key = "development-key"
 
 app.app_context().push()
+
+db = SQLAlchemy(app)
 
 
 @app.route('/')
